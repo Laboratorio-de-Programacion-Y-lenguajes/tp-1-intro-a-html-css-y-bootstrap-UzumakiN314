@@ -1,6 +1,6 @@
 /* ===== Variables CSS ===== */
 :root {
-    --primary-color: #0d6efd;
+    --primary-color: hsl(0deg 0% 0%);
     --text-color: #212529;
     --light-bg: #f8f9fa;
     --border-color: #dee2e6;
@@ -18,7 +18,7 @@ html {
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, Georgia, serif, "Helvetica Neue", Arial, sans-serif;
     line-height: 1.6;
     color: var(--text-color);
 }
@@ -36,12 +36,13 @@ a {
 
 /* ===== Navbar ===== */
 .navbar {
+    background-color: var(--primary-color) !important;
     box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
 }
 
 .navbar-brand {
-    font-size: 1.5rem;
-    letter-spacing: 0.5px;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
 }
 
 .navbar-brand:hover {
@@ -50,7 +51,8 @@ a {
 
 /* ===== Hero Section ===== */
 .bg-gradient {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #e9ecef !important;
+    border-bottom: 1px solid var(--border-color);
 }
 
 /* ===== Cards ===== */
@@ -84,10 +86,10 @@ a {
 }
 
 .btn-primary:hover {
-    background-color: #0b5ed7;
-    border-color: #0b5ed7;
+    background-color: #6d545460;
+    border-color: #614242;
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgb(13 110 253 / 30%);
+    box-shadow: 0 4px 8px rgb(167 58 58 / 25%) !important;
 }
 
 /* ===== Formulario ===== */
@@ -100,12 +102,12 @@ a {
 
 .form-control:focus {
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 0.2rem rgb(13 110 253 / 25%);
+    box-shadow: 0 0 0 0.2rem rgb(135 148 62 / 50%) !important;
 }
 
 /* Validación HTML5: estilos :valid e :invalid */
-.form-control:valid {
-    border-color: #198754;
+.was-validated .form-control:valid {
+    border-color: #73925e;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M.5 4.5L2 3l1-1 1 1 2-2 1 1-3 3-1 1-1-1-1-1z'/%3e%3c/svg%3e");
     background-repeat: no-repeat;
     background-position: right calc(0.375em + 0.1875rem) center;
@@ -113,8 +115,8 @@ a {
     padding-right: calc(1.5em + 0.75rem);
 }
 
-.form-control:invalid {
-    border-color: #dc3545;
+.was-validated .form-control:invalid {
+    border-color: #2e0f12;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.9h-.4z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
     background-repeat: no-repeat;
     background-position: right calc(0.375em + 0.1875rem) center;
@@ -127,7 +129,7 @@ a {
     width: 100%;
     margin-top: 0.25rem;
     font-size: 0.875em;
-    color: #dc3545;
+    color: #642329;
 }
 
 .was-validated .form-control:invalid ~ .invalid-feedback {
@@ -153,7 +155,7 @@ input:focus {
 }
 
 footer a:hover {
-    color: white;
+    color: var(--light-bg);
 }
 
 /* ===== Responsive ===== */
@@ -182,11 +184,22 @@ footer a:hover {
     top: -40px;
     left: 0;
     background: var(--primary-color);
-    color: white;
+    color: rgb(255 255 255);
     padding: 8px;
     text-decoration: none;
 }
 
 .skip-link:focus {
     top: 0;
+}
+
+label::after {
+    content: " (obligatorio)";
+    font-size: 0.8rem;
+    color: #6c757d;
+    font-weight: normal;
+}
+
+label[for="phone"]::after {
+    content: " (opcional)";
 }
